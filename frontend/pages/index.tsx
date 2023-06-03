@@ -3,9 +3,17 @@ import SearchBar from "../components/searchBar";
 import CSS from "csstype";
 import { useHome } from "@/hooks/useHome";
 import { colors } from "@/utils/colors";
+import { useEffect } from "react";
 
 export default function Home() {
-  const { term, setTerm } = useHome();
+  const { term, setTerm, storeSearchTerm } = useHome();
+
+  useEffect(() => {
+    const storeSearchTermTimeout =
+      term !== "" ? setTimeout(() => storeSearchTerm(), 800) : undefined;
+    return () => clearTimeout(storeSearchTermTimeout);
+  }, [storeSearchTerm, term]);
+
   return (
     <>
       <div style={appContainer}>
