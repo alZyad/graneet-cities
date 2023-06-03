@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import CSS from "csstype";
 import { useCityList } from "@/hooks/useCityList";
+import Loading from "./loading";
 
 type CityListProps = {
   term: string;
@@ -32,7 +33,9 @@ export default function CityList({ term }: CityListProps) {
       </p>
 
       {fetchingCities ? (
-        <div style={fetchingContainer}>Fetching</div>
+        <div style={fetchingContainer}>
+          <Loading />
+        </div>
       ) : (
         <div style={container}>
           {cities.map((cityData) => (
@@ -69,6 +72,7 @@ const container: CSS.Properties = {
 };
 
 const fetchingContainer: CSS.Properties = {
+  margin: "0 auto",
   paddingTop: "38px",
   color: "#000",
 };
