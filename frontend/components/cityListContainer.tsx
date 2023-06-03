@@ -4,28 +4,29 @@ import CityList from "./cityList";
 
 type cityListContainerProps = {
   cityListContainerTitle: string;
+  term: string;
 };
 
 export default function CityListContainer({
   cityListContainerTitle,
+  term,
 }: cityListContainerProps) {
   return (
     <div style={container}>
       <h1 style={cityTitle}>{cityListContainerTitle}</h1>
-      <CityList />
+      <CityList term={term} />
     </div>
   );
 }
 
 const container: CSS.Properties = {
-  flexGrow: 1,
   backgroundColor: "lightgrey",
-  margin: "30px 15px",
+  margin: "30px 0px",
   padding: "20px 35px",
+  width: "100%",
   borderRadius: "10px",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
 };
 
 const cityTitle: CSS.Properties = {

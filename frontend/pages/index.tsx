@@ -1,15 +1,23 @@
 import CityListContainer from "@/components/cityListContainer";
 import SearchBar from "../components/searchBar";
 import CSS from "csstype";
+import { useHome } from "@/hooks/useHome";
 
 export default function Home() {
+  const { term, setTerm } = useHome();
   return (
     <>
       <div style={appContainer}>
-        <SearchBar />
+        <SearchBar onTextInput={setTerm} />
         <div style={cityContainer}>
-          <CityListContainer cityListContainerTitle="Villes de métropole" />
-          <CityListContainer cityListContainerTitle="Villes d'outre-mer" />
+          <CityListContainer
+            term={term}
+            cityListContainerTitle="Villes de métropole"
+          />
+          <CityListContainer
+            term={term}
+            cityListContainerTitle="Villes d'outre-mer"
+          />
         </div>
       </div>
     </>
@@ -17,15 +25,18 @@ export default function Home() {
 }
 
 const appContainer: CSS.Properties = {
-  height: "100%",
-  width: "100%",
+  top: 0,
+  left: 0,
+  minHeight: "100%",
+  minWidth: "100%",
   position: "absolute",
+  padding: "30px",
   backgroundColor: "#eee",
 };
 
 const cityContainer: CSS.Properties = {
-  display: "flex",
-  flexDirection: "row",
+  display: "grid",
   flexGrow: 1,
-  justifyContent: "center",
+  gap: "0px 30px",
+  gridTemplateColumns: "1fr 1fr",
 };

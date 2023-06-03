@@ -1,26 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CSS from "csstype";
 import { useCityList } from "@/hooks/useCityList";
 
-export default function CityList() {
-  const { statusMessageColor, statusMessageText } = useCityList();
+type CityListProps = {
+  term: string;
+};
+
+export default function CityList({ term }: CityListProps) {
+  const {
+    statusMessageColor,
+    statusMessageText,
+    getInitialCities,
+    getCitiesWithTerm,
+    cities,
+    fetchingCities,
+  } = useCityList();
+
+  useEffect(() => {
+    if (term === "") {
+      getInitialCities();
+    } else {
+      const typeCityTimeout = setTimeout(() => getCitiesWithTerm(term), 800);
+      return () => clearTimeout(typeCityTimeout);
+    }
+  }, [getInitialCities, getCitiesWithTerm, term]);
+
   return (
     <>
       <p style={{ ...statusMessage, backgroundColor: statusMessageColor }}>
         {statusMessageText}
       </p>
 
-      <div style={container}>
-        <div style={cityContainer}>
-          <p style={city}>Paris</p>
+      {fetchingCities ? (
+        <div style={fetchingContainer}>Fetching</div>
+      ) : (
+        <div style={container}>
+          {cities.map((cityData) => (
+            <div
+              key={cityData.libelleAcheminement + cityData.codePostal}
+              style={cityContainer}
+            >
+              <p style={city}>{cityData.nomCommune}</p>
+            </div>
+          ))}
         </div>
-        <div style={cityContainer}>
-          <p style={city}>Lyon</p>
-        </div>
-        <div style={cityContainer}>
-          <p style={city}>Marseille</p>
-        </div>
-      </div>
+      )}
     </>
   );
 }
@@ -42,6 +66,11 @@ const container: CSS.Properties = {
   display: "grid",
   gap: "25px 33px",
   gridTemplateColumns: "auto auto",
+};
+
+const fetchingContainer: CSS.Properties = {
+  paddingTop: "38px",
+  color: "#000",
 };
 
 const cityContainer: CSS.Properties = {

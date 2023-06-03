@@ -1,13 +1,20 @@
 import React from "react";
 import CSS from "csstype";
 
-export default function SearchBar() {
+type SearchBarProps = {
+  onTextInput: (term: string) => void;
+};
+
+export default function SearchBar({ onTextInput }: SearchBarProps) {
   return (
     <div style={container}>
       <div style={inlineText}>Je recherche...</div>
       <input
         style={{ ...textInput, ...textInputPlaceholder }}
         placeholder="...une ville, un code postal"
+        onChange={(event) => {
+          onTextInput(event.target.value);
+        }}
       />
     </div>
   );
@@ -15,7 +22,6 @@ export default function SearchBar() {
 
 const container: CSS.Properties = {
   backgroundColor: "lightgrey",
-  margin: "50px 50px 0 50px",
   padding: "10px",
   borderRadius: "10px",
   height: "61px",
