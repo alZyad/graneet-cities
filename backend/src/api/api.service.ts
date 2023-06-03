@@ -12,7 +12,7 @@ const standardString = (str: string) => {
 
 const filterTerm = (data: city[], term: string) =>
   data.filter((city) =>
-    standardString(city.libelleAcheminement).includes(standardString(term)),
+    standardString(city.nomCommune).includes(standardString(term)),
   );
 
 const limitCities = (data: city[]) => data.slice(0, MAXIMUM_CITIES);
