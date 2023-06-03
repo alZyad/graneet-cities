@@ -40,8 +40,6 @@ export const useCityList = () => {
     []
   );
   return {
-    statusMessageText: "6 villes correspondent au texte saisi",
-    statusMessageColor: "#39BB37A1",
     getInitialCities,
     getCitiesWithTerm,
     cities,

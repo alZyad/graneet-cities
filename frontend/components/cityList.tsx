@@ -9,14 +9,22 @@ type CityListProps = {
 };
 
 export default function CityList({ term, filter }: CityListProps) {
-  const {
-    statusMessageColor,
-    statusMessageText,
-    getInitialCities,
-    getCitiesWithTerm,
-    cities,
-    fetchingCities,
-  } = useCityList();
+  const { getInitialCities, getCitiesWithTerm, cities, fetchingCities } =
+    useCityList();
+
+  const statusMessageColor = fetchingCities
+    ? "#e0af0ba0"
+    : cities.length > 0
+    ? "#39BB37A1"
+    : "#BB3737A1";
+
+  const statusMessageText = fetchingCities
+    ? "Recherche en cours"
+    : cities.length === 0
+    ? `aucun ville ne correspond au texte saisi`
+    : cities.length >= 100
+    ? `plus de 100 villes correspondent au texte saisi`
+    : `${cities.length} villes correspondent au texte saisi`;
 
   useEffect(() => {
     if (term === "") {
