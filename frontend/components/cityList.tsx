@@ -55,7 +55,8 @@ export default function CityList({ term, filter }: CityListProps) {
               key={cityData.libelleAcheminement + cityData.codePostal}
               style={cityContainer}
             >
-              <p style={city}>{cityData.nomCommune}</p>
+              <span style={city}>{cityData.nomCommune}</span>
+              <span style={postalCode}>{cityData.codePostal}</span>
             </div>
           ))}
         </div>
@@ -90,18 +91,16 @@ const fetchingContainer: CSS.Properties = {
 };
 
 const cityContainer: CSS.Properties = {
-  display: "flex",
   height: "60px",
-  alignItems: "center",
-  justifyItems: "center",
-  alignContent: "center",
   padding: "10px",
-  justifyContent: "center",
   backgroundColor: "#161C29A1",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
 };
 
 const city: CSS.Properties = {
-  flexGrow: "1",
   color: "#fff",
   fontFamily: "Montserrat",
   fontSize: "15px",
@@ -109,4 +108,17 @@ const city: CSS.Properties = {
   lineHeight: "18px",
   letterSpacing: "0em",
   textAlign: "left",
+  padding: "2px",
+};
+
+const postalCode: CSS.Properties = {
+  color: "#8C8F9A",
+  fontFamily: "Montserrat",
+  fontSize: "15px",
+  fontWeight: "700",
+  letterSpacing: "0em",
+  fontStyle: "normal",
+  lineHeight: "18px",
+  textAlign: "right",
+  padding: "2px",
 };
