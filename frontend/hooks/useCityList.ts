@@ -24,18 +24,21 @@ export const useCityList = () => {
       });
   }, []);
 
-  const getCitiesWithTerm = useCallback((term: string) => {
-    setFetchingCities(true);
-    fetch(`http://localhost:8000/api/searchCity/${term}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCities(data);
-        setFetchingCities(false);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+  const getCitiesWithTerm = useCallback(
+    (term: string, filter: "metropole" | "domtom") => {
+      setFetchingCities(true);
+      fetch(`http://localhost:8000/api/${filter}City/${term}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setCities(data);
+          setFetchingCities(false);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
+    []
+  );
   return {
     statusMessageText: "6 villes correspondent au texte saisi",
     statusMessageColor: "#39BB37A1",

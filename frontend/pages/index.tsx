@@ -10,14 +10,8 @@ export default function Home() {
       <div style={appContainer}>
         <SearchBar onTextInput={setTerm} />
         <div style={cityContainer}>
-          <CityListContainer
-            term={term}
-            cityListContainerTitle="Villes de métropole"
-          />
-          <CityListContainer
-            term={term}
-            cityListContainerTitle="Villes d'outre-mer"
-          />
+          <CityListContainer term={term} filter="metropole" />
+          <CityListContainer term={term} filter="domtom" />
         </div>
       </div>
     </>

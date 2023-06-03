@@ -5,9 +5,10 @@ import Loading from "./loading";
 
 type CityListProps = {
   term: string;
+  filter: "metropole" | "domtom";
 };
 
-export default function CityList({ term }: CityListProps) {
+export default function CityList({ term, filter }: CityListProps) {
   const {
     statusMessageColor,
     statusMessageText,
@@ -19,12 +20,15 @@ export default function CityList({ term }: CityListProps) {
 
   useEffect(() => {
     if (term === "") {
-      getInitialCities();
+      getCitiesWithTerm("*", filter); // * forces an empty search, since special characters are ignored
     } else {
-      const typeCityTimeout = setTimeout(() => getCitiesWithTerm(term), 800);
+      const typeCityTimeout = setTimeout(
+        () => getCitiesWithTerm(term, filter),
+        800
+      );
       return () => clearTimeout(typeCityTimeout);
     }
-  }, [getInitialCities, getCitiesWithTerm, term]);
+  }, [getInitialCities, getCitiesWithTerm, term, filter]);
 
   return (
     <>

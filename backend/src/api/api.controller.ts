@@ -10,6 +10,8 @@ export class ApiController {
     return this.apiService.getCities();
   }
 
+  // TODO: move city search term to body instead of route
+
   @Get('searchCity/:cityName')
   getCitiesSearch(@Param() params: { cityName: string }) {
     return this.apiService.getCitiesWithTerm(params.cityName);

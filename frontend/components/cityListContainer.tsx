@@ -3,18 +3,20 @@ import CSS from "csstype";
 import CityList from "./cityList";
 
 type cityListContainerProps = {
-  cityListContainerTitle: string;
+  filter: "metropole" | "domtom";
   term: string;
 };
 
 export default function CityListContainer({
-  cityListContainerTitle,
+  filter,
   term,
 }: cityListContainerProps) {
   return (
     <div style={container}>
-      <h1 style={cityTitle}>{cityListContainerTitle}</h1>
-      <CityList term={term} />
+      <h1 style={cityTitle}>
+        {filter === "metropole" ? "Villes de métropole" : "Villes d'outre-mer"}
+      </h1>
+      <CityList term={term} filter={filter} />
     </div>
   );
 }
