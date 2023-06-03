@@ -25,7 +25,6 @@ const container: CSS.Properties = {
   backgroundColor: "lightgrey",
   padding: "10px",
   borderRadius: "10px",
-  height: "61px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
@@ -44,7 +43,7 @@ const inlineText: CSS.Properties = {
 const textInput: CSS.Properties = {
   backgroundColor: colors.whiteBis,
   borderRadius: "10px",
-  padding: "0 28px",
+  padding: "10px 28px",
   flexGrow: "1",
   border: 0,
   fontWeight: "700",

@@ -94,8 +94,7 @@ const fetchingContainer: CSS.Properties = {
 };
 
 const cityContainer: CSS.Properties = {
-  height: "60px",
-  padding: "10px",
+  padding: "20px 14px",
   backgroundColor: colors.darkGreen,
   display: "flex",
   flexDirection: "row",
