@@ -4,7 +4,7 @@ import { Grid } from "react-loader-spinner";
 export default function Loading() {
   return (
     <>
-      <Grid color="#39BB37A1" />
+      <Grid color="#e0af0ba0" />
     </>
   );
 }
