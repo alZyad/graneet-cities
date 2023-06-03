@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import CSS from "csstype";
 import { useCityList } from "@/hooks/useCityList";
 import Loading from "./loading";
+import { colors } from "@/utils/colors";
 
 type CityListProps = {
   term: string;
@@ -13,10 +14,10 @@ export default function CityList({ term, filter }: CityListProps) {
     useCityList();
 
   const statusMessageColor = fetchingCities
-    ? "#e0af0ba0"
+    ? colors.loading
     : cities.length > 0
-    ? "#39BB37A1"
-    : "#BB3737A1";
+    ? colors.success
+    : colors.failure;
 
   const statusMessageText = fetchingCities
     ? "Recherche en cours"
@@ -67,7 +68,7 @@ export default function CityList({ term, filter }: CityListProps) {
 
 const statusMessage: CSS.Properties = {
   padding: "20px",
-  color: "#fff",
+  color: colors.white,
   fontFamily: "Montserrat",
   fontStyle: "normal",
   fontWeight: "700",
@@ -87,13 +88,13 @@ const container: CSS.Properties = {
 const fetchingContainer: CSS.Properties = {
   margin: "0 auto",
   paddingTop: "38px",
-  color: "#000",
+  color: colors.black,
 };
 
 const cityContainer: CSS.Properties = {
   height: "60px",
   padding: "10px",
-  backgroundColor: "#161C29A1",
+  backgroundColor: colors.darkGreen,
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
@@ -101,7 +102,7 @@ const cityContainer: CSS.Properties = {
 };
 
 const city: CSS.Properties = {
-  color: "#fff",
+  color: colors.white,
   fontFamily: "Montserrat",
   fontSize: "15px",
   fontWeight: "700",
@@ -112,7 +113,7 @@ const city: CSS.Properties = {
 };
 
 const postalCode: CSS.Properties = {
-  color: "#8C8F9A",
+  color: colors.grey,
   fontFamily: "Montserrat",
   fontSize: "15px",
   fontWeight: "700",

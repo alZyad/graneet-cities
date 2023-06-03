@@ -1,5 +1,6 @@
 import React from "react";
 import CSS from "csstype";
+import { colors } from "@/utils/colors";
 
 type SearchBarProps = {
   onTextInput: (term: string) => void;
@@ -33,7 +34,7 @@ const container: CSS.Properties = {
 
 const inlineText: CSS.Properties = {
   padding: "0 35px",
-  color: "#000",
+  color: colors.black,
   fontFamily: "Montserrat",
   fontStyle: "normal",
   fontWeight: "700",
@@ -44,9 +45,9 @@ const inlineText: CSS.Properties = {
 };
 
 const textInput: CSS.Properties = {
-  backgroundColor: "#F0FCFF",
+  backgroundColor: colors.whiteBis,
   borderRadius: "10px",
-  color: "#000",
+  color: colors.black,
   padding: "0 28px",
   flexGrow: "1",
   border: 0,
@@ -62,6 +63,6 @@ const textInput: CSS.Properties = {
 // FIXME: isn't applied
 const textInputPlaceholder: { [P in CSS.SimplePseudos]?: CSS.Properties } = {
   "::placeholder": {
-    color: "#000",
+    color: colors.black,
   },
 };

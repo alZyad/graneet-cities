@@ -2,6 +2,7 @@ import CityListContainer from "@/components/cityListContainer";
 import SearchBar from "../components/searchBar";
 import CSS from "csstype";
 import { useHome } from "@/hooks/useHome";
+import { colors } from "@/utils/colors";
 
 export default function Home() {
   const { term, setTerm } = useHome();
@@ -25,7 +26,7 @@ const appContainer: CSS.Properties = {
   minWidth: "100%",
   position: "absolute",
   padding: "30px",
-  backgroundColor: "#eee",
+  backgroundColor: colors.whiteTris,
 };
 
 const cityContainer: CSS.Properties = {

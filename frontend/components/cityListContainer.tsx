@@ -1,6 +1,7 @@
 import React from "react";
 import CSS from "csstype";
 import CityList from "./cityList";
+import { colors } from "@/utils/colors";
 
 type cityListContainerProps = {
   filter: "metropole" | "domtom";
@@ -33,7 +34,7 @@ const container: CSS.Properties = {
 
 const cityTitle: CSS.Properties = {
   height: "61px",
-  color: "#000",
+  color: colors.black,
   fontFamily: "Montserrat",
   fontStyle: "normal",
   fontWeight: "700",
