@@ -26,7 +26,6 @@ const container: CSS.Properties = {
   backgroundColor: "lightgrey",
   margin: "30px 0px",
   padding: "20px 35px",
-  width: "100%",
   borderRadius: "10px",
   display: "flex",
   flexDirection: "column",

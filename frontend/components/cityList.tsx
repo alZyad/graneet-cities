@@ -53,7 +53,12 @@ export default function CityList({ term, filter }: CityListProps) {
         <div style={container}>
           {cities.map((cityData) => (
             <div
-              key={cityData.libelleAcheminement + cityData.codePostal}
+              key={
+                cityData.nomCommune +
+                cityData.libelleAcheminement +
+                cityData.codePostal +
+                cityData.codeCommune
+              }
               style={cityContainer}
             >
               <span style={city}>{cityData.nomCommune}</span>

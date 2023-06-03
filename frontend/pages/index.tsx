@@ -30,8 +30,8 @@ export default function Home() {
 const appContainer: CSS.Properties = {
   top: 0,
   left: 0,
-  minHeight: "100%",
-  minWidth: "100%",
+  minHeight: "100vh",
+  minWidth: "100vw",
   position: "absolute",
   padding: "30px",
   backgroundColor: colors.whiteTris,
@@ -39,7 +39,6 @@ const appContainer: CSS.Properties = {
 
 const cityContainer: CSS.Properties = {
   display: "grid",
-  flexGrow: 1,
   gap: "0px 30px",
   gridTemplateColumns: "1fr 1fr",
 };

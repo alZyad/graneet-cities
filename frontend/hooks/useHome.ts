@@ -12,10 +12,7 @@ export const useHome = () => {
   const [term, setTerm] = useState("");
 
   const storeSearchTerm = async () => {
-    const { data, error } = await supabase
-      .from("search")
-      .insert([{ search_term: term }]);
-    console.log({ data, error });
+    await supabase.from("search").insert([{ search_term: term }]);
   };
 
   return {
