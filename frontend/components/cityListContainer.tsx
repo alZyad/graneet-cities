@@ -34,9 +34,6 @@ const container: CSS.Properties = {
 
 const cityTitle: CSS.Properties = {
   height: "61px",
-  color: colors.black,
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
   fontWeight: "700",
   fontSize: "30px",
   lineHeight: "37px",

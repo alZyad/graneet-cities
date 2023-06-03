@@ -11,7 +11,7 @@ export default function SearchBar({ onTextInput }: SearchBarProps) {
     <div style={container}>
       <div style={inlineText}>Je recherche...</div>
       <input
-        style={{ ...textInput, ...textInputPlaceholder }}
+        style={textInput}
         placeholder="...une ville, un code postal"
         onChange={(event) => {
           onTextInput(event.target.value);
@@ -34,9 +34,6 @@ const container: CSS.Properties = {
 
 const inlineText: CSS.Properties = {
   padding: "0 35px",
-  color: colors.black,
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
   fontWeight: "700",
   fontSize: "30px",
   lineHeight: "37px",
@@ -47,22 +44,12 @@ const inlineText: CSS.Properties = {
 const textInput: CSS.Properties = {
   backgroundColor: colors.whiteBis,
   borderRadius: "10px",
-  color: colors.black,
   padding: "0 28px",
   flexGrow: "1",
   border: 0,
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
   fontWeight: "700",
   fontSize: "30px",
   lineHeight: "37px",
   display: "flex",
   alignItems: "center",
-};
-
-// FIXME: isn't applied
-const textInputPlaceholder: { [P in CSS.SimplePseudos]?: CSS.Properties } = {
-  "::placeholder": {
-    color: colors.black,
-  },
 };

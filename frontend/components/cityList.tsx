@@ -69,8 +69,6 @@ export default function CityList({ term, filter }: CityListProps) {
 const statusMessage: CSS.Properties = {
   padding: "20px",
   color: colors.white,
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
   fontWeight: "700",
   fontSize: "15px",
   lineHeight: "18px",
@@ -88,7 +86,6 @@ const container: CSS.Properties = {
 const fetchingContainer: CSS.Properties = {
   margin: "0 auto",
   paddingTop: "38px",
-  color: colors.black,
 };
 
 const cityContainer: CSS.Properties = {
@@ -103,7 +100,6 @@ const cityContainer: CSS.Properties = {
 
 const city: CSS.Properties = {
   color: colors.white,
-  fontFamily: "Montserrat",
   fontSize: "15px",
   fontWeight: "700",
   lineHeight: "18px",
@@ -114,11 +110,9 @@ const city: CSS.Properties = {
 
 const postalCode: CSS.Properties = {
   color: colors.grey,
-  fontFamily: "Montserrat",
   fontSize: "15px",
   fontWeight: "700",
   letterSpacing: "0em",
-  fontStyle: "normal",
   lineHeight: "18px",
   textAlign: "right",
   padding: "2px",
